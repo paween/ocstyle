@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		015E983D154FA9D8004D95D2 /* libclang.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 015E983C154FA9D8004D95D2 /* libclang.dylib */; };
 		0F1E48AA1549EC950028EAF0 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E48A91549EC950028EAF0 /* main.cpp */; };
 		0F1E48AC1549EC950028EAF0 /* ocstyle.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0F1E48AB1549EC950028EAF0 /* ocstyle.1 */; };
-		0F1E48C31549ED100028EAF0 /* libclang.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F1E48C21549ED100028EAF0 /* libclang.dylib */; };
+		F1E48C31549ED100028EAF3 /* Variable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1E48C31549ED100028EAF2 /* Variable.cpp */; };
+		F1E48C31549ED100028EAF6 /* OCSBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1E48C31549ED100028EAF5 /* OCSBase.cpp */; };
+		F1E48C31549ED100028EAF9 /* Function.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1E48C31549ED100028EAF8 /* Function.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,10 +29,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		015E983C154FA9D8004D95D2 /* libclang.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libclang.dylib; path = lib/libclang.dylib; sourceTree = SOURCE_ROOT; };
 		0F1E48A51549EC950028EAF0 /* ocstyle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ocstyle; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F1E48A91549EC950028EAF0 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		0F1E48AB1549EC950028EAF0 /* ocstyle.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ocstyle.1; sourceTree = "<group>"; };
-		0F1E48C21549ED100028EAF0 /* libclang.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libclang.dylib; path = "../../llvm/build/Debug+Asserts/lib/libclang.dylib"; sourceTree = "<group>"; };
+		F1E48C31549ED100028EAF2 /* Variable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Variable.cpp; sourceTree = "<group>"; };
+		F1E48C31549ED100028EAF4 /* Variable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Variable.h; sourceTree = "<group>"; };
+		F1E48C31549ED100028EAF5 /* OCSBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OCSBase.cpp; sourceTree = "<group>"; };
+		F1E48C31549ED100028EAF7 /* OCSBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCSBase.h; sourceTree = "<group>"; };
+		F1E48C31549ED100028EAF8 /* Function.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Function.cpp; sourceTree = "<group>"; };
+		F1E48C31549ED100028EAFA /* Function.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Function.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,17 +46,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F1E48C31549ED100028EAF0 /* libclang.dylib in Frameworks */,
+				015E983D154FA9D8004D95D2 /* libclang.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		015E983A154FA963004D95D2 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				015E983C154FA9D8004D95D2 /* libclang.dylib */,
+			);
+			name = lib;
+			path = ocstyle;
+			sourceTree = "<group>";
+		};
 		0F1E489A1549EC950028EAF0 = {
 			isa = PBXGroup;
 			children = (
-				0F1E48C21549ED100028EAF0 /* libclang.dylib */,
+				015E983A154FA963004D95D2 /* lib */,
 				0F1E48A81549EC950028EAF0 /* ocstyle */,
 				0F1E48A61549EC950028EAF0 /* Products */,
 			);
@@ -64,10 +82,24 @@
 		0F1E48A81549EC950028EAF0 /* ocstyle */ = {
 			isa = PBXGroup;
 			children = (
+				F1E48C31549ED100028EAF7 /* OCSBase.h */,
+				F1E48C31549ED100028EAF5 /* OCSBase.cpp */,
+				F1E48C31549ED100028EAF1 /* Language */,
 				0F1E48A91549EC950028EAF0 /* main.cpp */,
 				0F1E48AB1549EC950028EAF0 /* ocstyle.1 */,
 			);
 			path = ocstyle;
+			sourceTree = "<group>";
+		};
+		F1E48C31549ED100028EAF1 /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				F1E48C31549ED100028EAFA /* Function.h */,
+				F1E48C31549ED100028EAF8 /* Function.cpp */,
+				F1E48C31549ED100028EAF4 /* Variable.h */,
+				F1E48C31549ED100028EAF2 /* Variable.cpp */,
+			);
+			path = Language;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -121,6 +153,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F1E48AA1549EC950028EAF0 /* main.cpp in Sources */,
+				F1E48C31549ED100028EAF3 /* Variable.cpp in Sources */,
+				F1E48C31549ED100028EAF6 /* OCSBase.cpp in Sources */,
+				F1E48C31549ED100028EAF9 /* Function.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +215,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../llvm/build/Debug+Asserts/lib/clang/3.2/lib/darwin\"",
 					"\"$(SRCROOT)/../../llvm/build/Debug+Asserts/lib\"",
+					"\"$(SRCROOT)/lib\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -193,6 +229,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../llvm/build/Debug+Asserts/lib/clang/3.2/lib/darwin\"",
 					"\"$(SRCROOT)/../../llvm/build/Debug+Asserts/lib\"",
+					"\"$(SRCROOT)/lib\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -217,6 +254,7 @@
 				0F1E48B11549EC950028EAF0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
