@@ -13,6 +13,7 @@
 		F1E48C31549ED100028EAF3 /* Variable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1E48C31549ED100028EAF2 /* Variable.cpp */; };
 		F1E48C31549ED100028EAF6 /* OCSBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1E48C31549ED100028EAF5 /* OCSBase.cpp */; };
 		F1E48C31549ED100028EAF9 /* Function.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1E48C31549ED100028EAF8 /* Function.cpp */; };
+		F1E48C31549ED100028EAFD /* SourceProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1E48C31549ED100028EAFC /* SourceProcessor.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +40,8 @@
 		F1E48C31549ED100028EAF7 /* OCSBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCSBase.h; sourceTree = "<group>"; };
 		F1E48C31549ED100028EAF8 /* Function.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Function.cpp; sourceTree = "<group>"; };
 		F1E48C31549ED100028EAFA /* Function.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Function.h; sourceTree = "<group>"; };
+		F1E48C31549ED100028EAFC /* SourceProcessor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SourceProcessor.cpp; sourceTree = "<group>"; };
+		F1E48C31549ED100028EAFE /* SourceProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceProcessor.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +90,7 @@
 				F1E48C31549ED100028EAF1 /* Language */,
 				0F1E48A91549EC950028EAF0 /* main.cpp */,
 				0F1E48AB1549EC950028EAF0 /* ocstyle.1 */,
+				F1E48C31549ED100028EAFB /* Processor */,
 			);
 			path = ocstyle;
 			sourceTree = "<group>";
@@ -100,6 +104,15 @@
 				F1E48C31549ED100028EAF2 /* Variable.cpp */,
 			);
 			path = Language;
+			sourceTree = "<group>";
+		};
+		F1E48C31549ED100028EAFB /* Processor */ = {
+			isa = PBXGroup;
+			children = (
+				F1E48C31549ED100028EAFE /* SourceProcessor.h */,
+				F1E48C31549ED100028EAFC /* SourceProcessor.cpp */,
+			);
+			path = Processor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +169,7 @@
 				F1E48C31549ED100028EAF3 /* Variable.cpp in Sources */,
 				F1E48C31549ED100028EAF6 /* OCSBase.cpp in Sources */,
 				F1E48C31549ED100028EAF9 /* Function.cpp in Sources */,
+				F1E48C31549ED100028EAFD /* SourceProcessor.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

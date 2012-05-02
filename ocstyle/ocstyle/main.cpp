@@ -12,13 +12,14 @@
 #include <vector>
 #include "Variable.h"
 #include "Function.h"
+#include "SourceProcessor.h"
 
 using namespace std;
 using namespace ocstyle;
 
 vector<CXCursor> *recurseStack;
 
-CXChildVisitResult cursorVisitor(CXCursor cursor, CXCursor parent, CXClientData clientData)
+CXChildVisitResult cursorVisitodfdfr(CXCursor cursor, CXCursor parent, CXClientData clientData)
 {
     if (recurseStack->size() > 0) {
         // There is something in the stack, compare the parent
@@ -37,16 +38,6 @@ CXChildVisitResult cursorVisitor(CXCursor cursor, CXCursor parent, CXClientData 
             } else {
                 recurseStack->push_back(parent);
             }
-//            CXCursor tempTop = recurseStack->top();
-//            recurseStack->pop();
-//            CXCursor secondTop = recurseStack->top();
-//            if (! clang_equalCursors(parent, secondTop)) {
-//                // Push back
-//                recurseStack->push(tempTop);
-//                recurseStack->push(parent);
-//            } else {
-//                recurseStack->();
-//            }
         }
     } else {
         recurseStack->push_back(parent);
@@ -104,22 +95,25 @@ CXChildVisitResult cursorVisitor(CXCursor cursor, CXCursor parent, CXClientData 
 
 int main(int argc, const char * argv[])
 {
-    recurseStack = new vector<CXCursor>();
-    CXIndex index = clang_createIndex(0, 0);
-    char sourceFilename[] = "/Users/frank/test.c";
-    CXTranslationUnit translationUnit = clang_parseTranslationUnit(index, sourceFilename, argv, argc, NULL, 0, CXTranslationUnit_None);
+    SourceProcessor processor("/Users/paween/test.c", argc, argv);
+    processor.parse();
 
-    CXCursor rootCursor = clang_getTranslationUnitCursor(translationUnit);
-
-    vector<OCSBase *> *list = new vector<OCSBase *>();
-    clang_visitChildren(rootCursor, &cursorVisitor, list);
-
-    for (vector<OCSBase *>::iterator it = list->begin(); it != list->end(); ++it) {
-        cout << (*it)->toString() << endl;
-    }
-
-    clang_disposeTranslationUnit(translationUnit);
-    clang_disposeIndex(index);
+//    recurseStack = new vector<CXCursor>();
+//    CXIndex index = clang_createIndex(0, 0);
+//    char sourceFilename[] = "/Users/frank/test.c";
+//    CXTranslationUnit translationUnit = clang_parseTranslationUnit(index, sourceFilename, argv, argc, NULL, 0, CXTranslationUnit_None);
+//
+//    CXCursor rootCursor = clang_getTranslationUnitCursor(translationUnit);
+//
+//    vector<OCSBase *> *list = new vector<OCSBase *>();
+//    clang_visitChildren(rootCursor, &cursorVisitor, list);
+//
+//    for (vector<OCSBase *>::iterator it = list->begin(); it != list->end(); ++it) {
+//        cout << (*it)->toString() << endl;
+//    }
+//
+//    clang_disposeTranslationUnit(translationUnit);
+//    clang_disposeIndex(index);
     return 0;
 }
 

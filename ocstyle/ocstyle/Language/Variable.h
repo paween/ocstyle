@@ -22,7 +22,7 @@ namespace ocstyle
         StaticVariable,
     } VariableType;
 
-    class Variable : OCSBase {
+    class Variable : public OCSBase {
         private:
         char *mVariableName;
         VariableType mVariableType;

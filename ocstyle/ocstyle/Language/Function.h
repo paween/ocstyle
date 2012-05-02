@@ -17,7 +17,7 @@ namespace ocstyle
 {
     using namespace std;
 
-    class Function : OCSBase {
+    class Function : public OCSBase {
     private:
         char *mFunctionName;
         vector<char *> *mParameters;
